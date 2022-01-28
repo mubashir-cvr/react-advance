@@ -3,7 +3,10 @@ import { data } from '../../../data';
 
 const UseStateArray = () => {
   const [people,setPeople]=React.useState(data)
-  return people.map((person)=>{
+  return (
+    <>
+    {people.map((person)=>{
+    
     const {id,name}=person
     return (
       <div key={id} className='item'>
@@ -11,7 +14,15 @@ const UseStateArray = () => {
 
       </div>
     )
-  });
+   
+
+  
+  })}
+  <button className='btn' onClick={()=>setPeople([])}>
+    Clear Items
+  </button>
+  </>
+  );
 };
 
 export default UseStateArray;
