@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
 const UseStateBasics = () => {
-  return <h2>useState basic example</h2>;
+  const[text,setText]=useState('Random Text')
+  return <React.Fragment>
+    <h2>{text}</h2>
+  </React.Fragment>;
 };
 
 export default UseStateBasics;
