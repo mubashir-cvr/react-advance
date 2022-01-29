@@ -9,7 +9,7 @@ const UseEffectBasics = () => {
     if(count>=1){
       document.title=`(${count})`
     }
-  })
+  },[])//Dependencies 
   return <>
   <h2>{count}</h2>
   <button className='btn' onClick={()=>setCount(count+1)}>Click</button>
