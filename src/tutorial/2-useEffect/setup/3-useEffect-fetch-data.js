@@ -17,6 +17,21 @@ const UseEffectFetchData = () => {
   return (
     <>
       <h2>User List</h2>
+      <ul className='users'>
+        {user.map((u)=>{
+          const {id,login,avatar_url}=u
+          return (
+            <li key={id}>
+              <img src={avatar_url}></img>
+              <div>
+                <h4>{login}</h4>
+                <a href={avatar_url}>profile</a>
+              </div>
+            </li>
+          );
+
+        })}
+      </ul>
     </>
   );
 };
