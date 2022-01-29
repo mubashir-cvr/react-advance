@@ -8,13 +8,12 @@ const UseEffectFetchData = () => {
   const getUsers = async()=>{
     const response=await fetch(url)
     const users= await response.json()
-    //setUser(users) // it will cause infinite loop rerender -> and useEffect
-    console.log(users)
+    setUser(users) 
   }
   
   useEffect(async ()=>{
     getUsers()
-  })
+  },[])
   return (
     <>
       <h2>User List</h2>
