@@ -12,6 +12,8 @@ const ShortCircuit = () => {
       {text && <h4>Text is contain a value</h4>}
       <h2>{text1 || "Empty"}</h2>
       {text1 && <h4>Text is contain a value</h4>}
+      <h6>------------------------------------</h6>
+      {!text1 && <h4>Text is contain a value</h4>}
     </>
   );
 };
