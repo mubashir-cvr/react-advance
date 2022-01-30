@@ -20,6 +20,12 @@ const reducer=(state,action)=>{
        modelContent: "No VALUES in Input",
      };
   }
+  if (action.type === "CLOSE_MODEL") {
+    return {
+      ...state,
+      isModalOpen: false,
+    };
+  }
   throw new Error('no Matching Action Type')
 }
  const defaultState = {
@@ -40,9 +46,13 @@ const Index = () => {
       dispatch({ type: "NO_VALUE"});
     }
   };
+  const closeModel=(e)=>{
+    dispatch({ type: "CLOSE_MODEL" });
+
+  }
   return (
     <>
-      {state.isModalOpen && <Modal modelContent={state.modelContent} />}
+      {state.isModalOpen && <Modal closeModel={closeModel} modelContent={state.modelContent} />}
       <form onSubmit={handleSubmit} className="form">
         <div>
           <input
@@ -58,7 +68,7 @@ const Index = () => {
       </form>
       {state.people.map((person) => {
         return (
-          <div key={person.id}>
+          <div key={person.id} className="item">
             <h4>{person.name}</h4>
           </div>
         );
